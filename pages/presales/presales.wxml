@@ -1,0 +1,36 @@
+<!--pages/presales/presales.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScrollToLower" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="container">
+            <view class="section presales" wx:if="{{presales.length > 0}}">
+                <view class="section-body">
+                    <block wx:for="{{presales}}" wx:key="*this">
+                        <view class="presale-item" bindtap="handleTap" data-type="presale" data-id="{{item.id}}">
+                            <view class="presale-meta">
+                                <view class="presale-cover" style="background-image:url({{item.cover}})"></view>
+                                 <view class="presale-info">
+                                    <text class="item-left" wx-if="{{item.name}}">{{item.name}}</text>
+                                    <text wx-if="{{item.type}}">{{item.type}}</text>
+                                </view>
+                                <view class="presale-info">
+                                    <text class="item-left" wx-if="{{item.layout}}">{{item.layout}}</text>
+                                    <text wx-if="{{item.area}}">{{item.area}}</text>
+                                </view>
+                            </view>
+                            <view class="presale-price">
+                                <text>{{item.price}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //楼花转让 -->
+            
+            <view class="loading-container" wx:if="{{showLoadMore == true}}"><view class="loading"></view><text>{{lang.LOADING}}...</text></view>
+        </view>
+    </scroll-view>
+    <view class="video-layer" wx:if="{{targetVideo != ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+        <video mode="widthFix" autoplay src="{{targetVideo}}" poster="{{targetVideo}}?x-oss-process=video/snapshot,t_1000"></video>
+        <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
+    </view>
+</view>

@@ -1,0 +1,69 @@
+/* pages/login/login.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eeeeee;
+}
+
+.logo {
+    width: 160rpx;
+    height: 160rpx;
+    background: #FFFFFF;
+    border-radius: 28rpx;
+    margin-top: 104rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo image {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.intro {
+    font-size: 12px;
+    color: #888888;
+    letter-spacing: 0;
+    margin-top: 16rpx;
+}
+
+.btn-login {
+    width: 606rpx;
+    height: 96rpx;
+    background: #FFFFFF;
+    border-radius: 48rpx;
+    margin-top: 160rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    margin-left: 0rpx;
+    margin-right: 0rpx;
+    padding: 0rpx;
+    border: 0px;
+}
+.btn-login:active {
+    opacity: 0.8;
+}
+
+.btn-login image {
+    width: 64rpx;
+    height: 64rpx;
+}
+.btn-login text {
+    font-size: 14px;
+    color: #446644;
+    letter-spacing: 0;
+    text-align: center;
+    margin-left: 24rpx;
+}
+
+.txt-or {
+    font-size: 14px;
+    padding: 50rpx 0rpx;
+}
+.login-with-mobile {
+    margin-top: 0rpx;
+}

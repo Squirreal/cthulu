@@ -1,0 +1,19 @@
+/**index.wxss**/
+.copyright {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+    line-height: 30px;
+    color: #A0A0A0;
+    font-size: 12px;
+}
+
+
+.loading {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+}

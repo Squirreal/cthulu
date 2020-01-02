@@ -1,0 +1,26 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/home/home",
+        "pages/country/country",
+        "pages/city/city",
+        "pages/city/buildings",
+        "pages/building/building",
+        "pages/presale/presale",
+        "pages/logs/logs",
+        "pages/login/login",
+        "pages/presales/presales"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "SQUIRREAL",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "navbar": "/components/navbar/navbar"
+    }
+}

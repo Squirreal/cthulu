@@ -1,0 +1,174 @@
+/* pages/home/home.wxss */
+.swiper {
+    height: 424rpx;
+}
+.swiper .swiper-container {
+    height: 100%;
+}
+.swiper-item {
+    height:100%;
+    position:relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-size: cover;
+}
+.swiper-item .icon-play {
+    width: 86rpx;
+    height: 86rpx;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    margin-top:-43rpx;
+    margin-left:-43rpx;
+}
+
+.card {
+    padding-left:28rpx;
+    padding-top: 16rpx;
+}
+.card.hot-country {
+    padding-top: 40rpx;
+}
+.card .card-title {
+    font-weight: 700;
+    font-size: 16px;
+}
+.card .card-body {
+    padding-top: 24rpx;
+    padding-left: 28rpx;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.card .card-body .card-item{
+    display: block;
+    margin-right: 40rpx;
+    margin-bottom: 24rpx;
+    width: 96rpx;
+    
+}
+.card .card-body .item-name {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 16rpx;
+}
+.card .card-body .item-flag {
+    font-size: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #8a8a8a;
+}
+.card .circle-item {
+    width: 96rpx;
+    height:96rpx;
+    
+    border: 0px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-size: cover;
+    box-shadow: 0 0 4px 0 #AAAAAA;
+    border-radius: 48rpx;
+    overflow: hidden;
+}
+
+.card .circle-item .txt-name {
+    width: 100%;
+    height: 100%;
+    line-height: 96rpx;
+    /* background: rgba(255,255,255,0.75); */
+    display:block;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card.hot-buildings .card-body {
+    padding-left:0rpx;
+    padding-right:28rpx;
+    justify-content: space-between;
+}
+.card .building-item {
+    width: 48%;
+    margin-bottom: 32rpx;
+    background:#FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+}
+.card .building-item .building-cover {
+    width: 100%;
+    height: 240rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-size: cover;
+    position: relative;
+}
+.card .building-item .building-info {
+    padding: 20rpx;
+}
+.card .building-item .building-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #353535;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+.card .building-item .building-location {
+    margin-top: 24rpx;
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 12px;
+}
+.card .building-item .building-price {
+    margin-top: 8rpx;
+    font-size: 12px;
+    color: #6A6362;
+    letter-spacing: 0;
+    line-height: 12px;
+    font-weight: 700;
+}
+.card .building-item .building-price .sp {
+    font-size: 10px;
+    margin-left: 4rpx;
+    font-weight: 400;
+}
+.card .building-item .building-tag {
+    font-size:10px;
+    color: #FFF;
+    background: #A1887F;
+    padding:4rpx 6rpx;
+    border-radius: 4rpx;
+    position: absolute;
+    right: 8rpx;
+    bottom: 8rpx;
+}
+.card .building-item .btn {
+    width: 100%;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 24rpx;
+    padding: 0px;
+    height: 56rpx;
+    min-height: 0rpx;
+    line-height: 56rpx;
+    background: #A1887F;
+    border-radius: 12rpx;
+}
+.card .building-item .btn:active {
+    opacity: 0.8;
+}
+

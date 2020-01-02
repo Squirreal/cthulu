@@ -1,0 +1,103 @@
+<!--pages/city/city.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScrollToLower" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="container">
+            <view class="swiper" wx:if="{{banner.length > 0}}">
+                <swiper class="swiper-container" indicator-dots="{{banner.length > 1}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}" duration="{{swiperConfig.duration}}">
+                    <block wx:for="{{banner}}" wx:key="*this">
+                        <swiper-item>
+                            <view wx:if="{{ item.type == 1 }}" class="swiper-item" style="background-image:url({{item.file}})" bindtap="handleTap" data-type="{{item.target}}" data-id="{{item.targetId}}">
+                                
+                            </view>
+                            <view wx:elif="{{ item.type == 2 }}" class="swiper-item" style="background-image:url({{item.file}}?x-oss-process=video/snapshot,t_1000)" bindtap="handlePlayVideo" data-video="{{item.file}}">
+                                <image class="icon-play" src="/assets/icon_play.png"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view><!-- //轮播 -->
+            <view class="section" wx:if="{{cityInfo.name}}">
+                <view class="section-title">{{lang.CITY_IDENTITY}}</view>
+                <view class="section-body">
+                    <view class="feature-item">
+                        <text>{{lang.LIVABLE_CITY_RANKING}}</text>
+                        <text>{{cityInfo.livable_rank}}</text>
+                    </view>
+                    <view class="feature-item">
+                        <text>{{lang.AREA}}</text>
+                        <text>{{cityInfo.area}}</text>
+                    </view>
+                    <view class="feature-item">
+                        <text>{{lang.CLIMATE}}</text>
+                        <text>{{cityInfo.climate}}</text>
+                    </view>
+                    <view class="feature-item" wx:if="{{cityInfo.school}}">
+                        <text>{{lang.SCHOOL}}</text>
+                        <text>{{cityInfo.school}}</text>
+                    </view>
+                    <view class="feature-item" wx:if="{{cityInfo.feature}}">
+                        <text>{{lang.FEATURE}}</text>
+                        <text>{{cityInfo.feature}}</text>
+                    </view>
+                </view>
+            </view><!-- //城市特色 -->
+            <view class="section building-intro" wx:if="{{cityInfo.building_intro}}">
+                <view class="section-title">{{lang.BUILDING_INTRO}}</view>
+                <view class="section-body">
+                    <text>{{cityInfo.building_intro}}</text>
+                </view>
+            </view>
+            <view class="section presales" wx:if="{{presales.length > 0}}">
+                <view class="section-title">{{lang.PRESALES_LIST}}</view>
+                <view class="section-body">
+                    <block wx:for="{{presales}}" wx:key="*this">
+                        <view class="presale-item" bindtap="handleTap" data-type="presale" data-id="{{item.id}}">
+                            <view class="presale-meta">
+                                <view class="presale-cover" style="background-image:url({{item.cover}})"></view>
+                                <view class="presale-info">
+                                    <text class="item-left" wx-if="{{item.name}}">{{item.name}}</text>
+                                    <text wx-if="{{item.type}}">{{item.type}}</text>
+                                </view>
+                                <view class="presale-info">
+                                    <text class="item-left" wx-if="{{item.layout}}">{{item.layout}}</text>
+                                    <text wx-if="{{item.area}}">{{item.area}}</text>
+                                </view>
+                            </view>
+                            <view class="presale-price">
+                                <text>{{item.price}}</text>
+                            </view>
+                        </view>
+                    </block>
+
+                    <button class="btn-more" bindtap="handleTap" data-type="presales" data-id="{{cityId}}">{{lang.MORE_INFO}}</button>
+                </view>
+            </view><!-- //楼花转让 -->
+            <view class="section buildings" wx:if="{{buildings.length > 0}}">
+                <view class="section-title">{{lang.RELATED_BUILDINGS}}</view>
+                <view class="section-body">
+                    <block wx:for="{{buildings}}" wx:key="*this">
+                        <view class="building-item" bindtap="handleTap" data-type="building" data-id="{{item.id}}">
+                            <view class="building-cover" style="background-image:url({{item.cover}})">
+                                <text class="building-tag" wx-if="{{item.tag}}">{{item.tag}}</text>
+                            </view>
+                            <view class="building-info">
+                                <view class="building-name"><text>{{item.name}}</text></view>
+                                <view class="building-location"><text>{{item.location}}</text></view>
+                                <view class="building-price"><text>{{item.price}}</text><text class="sp">{{lang.SP}}</text></view>
+                                <button class="btn">{{lang.VIEW_MORE}}</button>
+                            </view>
+                        </view>
+                    </block>
+                    <button class="btn-more" bindtap="handleTap" data-type="cityBuildings" data-id="{{cityId}}">{{lang.MORE_INFO}}</button>
+                </view>
+            </view><!-- //合作楼盘 -->
+            
+            <view class="loading-container" wx:if="{{showLoadMore == true}}"><view class="loading"></view><text>{{lang.LOADING}}...</text></view>
+        </view>
+    </scroll-view>
+    <view class="video-layer" wx:if="{{targetVideo != ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+        <video mode="widthFix" autoplay src="{{targetVideo}}" poster="{{targetVideo}}?x-oss-process=video/snapshot,t_1000"></video>
+        <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
+    </view>
+</view>

@@ -1,0 +1,75 @@
+<!--pages/home/home.wxml-->
+<navbar text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScrollToLower" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="container">
+            <view class="swiper" wx:if="{{banner.length > 0}}">
+                <swiper class="swiper-container" indicator-dots="{{banner.length > 1}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}" duration="{{swiperConfig.duration}}">
+                    <block wx:for="{{banner}}" wx:key="*this">
+                        <swiper-item>
+                            <view wx:if="{{ item.type == 1 }}" class="swiper-item" style="background-image:url({{item.file}})" bindtap="handleTap" data-type="{{item.target}}" data-id="{{item.targetId}}">
+                                
+                            </view>
+                            <view wx:elif="{{ item.type == 2 }}" class="swiper-item" style="background-image:url({{item.file}}?x-oss-process=video/snapshot,t_1000)" bindtap="handlePlayVideo" data-video="{{item.file}}">
+                                <image class="icon-play" src="/assets/icon_play.png"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view><!-- //轮播 -->
+            <view class="card hot-country" wx:if="{{hotCountry.length > 0}}">
+                <text class="card-title">{{lang.HOT_COUNTRY}}</text>
+                <view class="card-body">
+                    <block wx:for="{{hotCountry}}" wx:key="*this">
+                        <view class="card-item">
+                            <view class="circle-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-id="{{item.id}}" data-type="country">
+                                <text class="txt-name"></text>
+                            </view>
+                            <text class="item-name">{{item.name}}</text>
+                            <text class="item-flag" wx:if="{{item.intro}}">{{item.intro}}</text>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //热门国家 -->
+            <view class="card hot-city" wx:if="{{hotCity.length > 0}}">
+                <text class="card-title">{{lang.HOT_CITY}}</text>
+                <view class="card-body">
+                    <block wx:for="{{hotCity}}" wx:key="*this">
+                        <view class="card-item">
+                            <view class="circle-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-id="{{item.id}}" data-type="city">
+                                <text class="txt-name"></text>
+                            </view>
+                            <text class="item-name">{{item.name}}</text>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //热门城市 -->
+            <view class="card hot-buildings" wx:if="{{hotBuildings.length > 0}}">
+                <text class="card-title">{{lang.BEST_BUILDINGS}}</text>
+                <view class="card-body">
+                    <block wx:for="{{hotBuildings}}" wx:key="*this">
+                        <view class="building-item" bindtap="handleTap" data-id="{{item.id}}" data-type="building">
+                            <view class="building-cover" style="background-image:url({{item.cover}})">
+                                <text class="building-tag" wx-if="{{item.tag}}">{{item.tag}}</text>
+                            </view>
+                            <view class="building-info">
+                                <view class="building-name"><text>{{item.name}}</text></view>
+                                <view class="building-location"><text>{{item.location}}</text></view>
+                                <view class="building-price"><text>{{item.price}}</text><text class="sp">{{lang.SP}}</text></view>
+                                <button class="btn">{{lang.VIEW_MORE}}</button>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //精品楼盘 -->
+            <view class="loading-container" wx:if="{{showLoadMore == true}}"><view class="loading"></view><text>{{lang.LOADING}}...</text></view>
+        </view>
+    </scroll-view>
+    <view class="video-layer" wx:if="{{targetVideo != ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+        <video mode="widthFix" autoplay src="{{targetVideo}}" poster="{{targetVideo}}?x-oss-process=video/snapshot,t_1000"></video>
+        <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
+    </view>
+</view>
+<view class="btn-share-container">
+    <button open-type="share" class="btn-share"><image src="/assets/icon_share.png"></image></button>
+</view>

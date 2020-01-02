@@ -1,0 +1,228 @@
+<!--pages/presale/presale.wxml-->
+<!--pages/building/building.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscroll="handleScroll" scroll-with-animation="true" scroll-into-view="{{scrollToViewId}}" style="height:{{windowHeight-navigationBarHeight}}px">
+    <view class="container" wx:if="{{data.info}}">
+        <view class="swiper" id="viewSwiper" wx:if="{{data.banner && data.banner.length > 0}}">
+            <swiper class="swiper-container" indicator-dots="{{data.banner.length > 1}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}" duration="{{swiperConfig.duration}}">
+                <block wx:for="{{data.banner}}" wx:key="*this">
+                    <swiper-item>
+                        <view wx:if="{{ item.type == 1 }}" class="swiper-item" style="background-image:url({{item.file}})" bindtap="handlePreview" data-file="{{item.file}}">
+                            
+                        </view>
+                        <view wx:elif="{{ item.type == 2 }}" class="swiper-item" style="background-image:url({{item.file}}?x-oss-process=video/snapshot,t_1000)" bindtap="handlePlayVideo" data-video="{{item.file}}">
+                            <image class="icon-play" src="/assets/icon_play.png"></image>
+                        </view>
+                        </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <!-- //轮播 -->
+        <view class="section info" wx:if="{{data.info}}">
+            <view class="section-title">
+                <text class="title">{{data.info.name}}</text>
+            </view>
+            <view class="section-body">
+                <view class="location"><image mode="aspectFit" src="/assets/icon_location.png" /><text>{{data.info.location}}</text></view>
+                <view class="meta">
+                    <view class="meta-item">
+                        <text class="meta-title">{{lang.PROPERTY_YEARS}}</text>
+                        <text class="meta-value" wx:if="{{data.info.property_years >= 0}}">{{data.info.property_years}}{{lang.YEAR}}</text>
+                        <text class="meta-value" wx:if="{{data.info.property_years == -1}}">{{lang.FOREVER}}</text>
+                    </view>
+                    <view class="meta-item">
+                        <text class="meta-title">{{lang.DELIVERY_TIME}}</text>
+                        <text class="meta-value">{{data.info.delivery_time}}</text>
+                    </view>
+                    <view class="meta-item">
+                        <text class="meta-title">{{lang.PROJECT_STATUS}}</text>
+                        <text class="meta-value">{{data.info.project_status}}</text>
+                    </view>
+                </view>
+            </view>
+        </view><!-- //楼盘详情 -->
+
+        <view class="section project">
+            <view class="section-title">
+                <text class="title">{{lang.PROJECT_INFO}}</text>
+            </view>
+            <view class="section-body">
+                <view>
+                    <view class="apartment-item" wx:if="{{data.info.type}}">
+                        <text>{{lang.TYPE}}</text>
+                        <view class="right"><text>{{data.info.type}}</text></view>
+                    </view>
+                    <view class="apartment-item" wx:if="{{data.info.layout}}">
+                        <text>{{lang.HOUSE_LAYOUT}}</text>
+                        <view class="right"><text>{{data.info.layout}}</text></view>
+                    </view>
+                    
+                    <view class="apartment-item" wx:if="{{data.info.floor}}">
+                        <text>{{lang.FLOOR}}</text>
+                        <view class="right"><text>{{data.info.floor}}</text></view>
+                    </view>
+                    
+                    <view class="apartment-item" wx:if="{{data.info.room}}">
+                        <text>{{lang.ROOM_NUMBER}}</text>
+                        <view class="right"><text>{{data.info.room}}</text></view>
+                    </view>
+                    <view class="apartment-item" wx:if="{{data.info.area}}">
+                        <text>{{lang.AREA_OF_HOUSE}}</text>
+                        <view class="right"><text>{{data.info.area}}</text></view>
+                    </view>
+                    <view class="apartment-item" wx:if="{{data.info.balcony_area}}">
+                        <text>{{lang.BALCONY_AREA}}</text>
+                        <view class="right"><text>{{data.info.balcony_area}}</text></view>
+                    </view>
+                    <view class="apartment-item" wx:if="{{data.info.price}}">
+                        <text>{{lang.PRICE}}</text>
+                        <view class="right"><text>{{data.info.price}}</text></view>
+                    </view>
+                </view>
+
+                <view class="feature-box" wx:if="{{data.tags.length > 0}}">
+                    <swiper class="swiper-container" indicator-dots="{{data.tags.length > 1}}" indicator-color="{{swiperConfig.indicatorColor}}" indicator-active-color="{{swiperConfig.indicatorActiveColor}}" interval="{{swiperConfig.interval}}" duration="{{swiperConfig.duration}}">
+                        <block wx:for="{{data.tags}}" wx:key="*this" wx:for-index="idx" wx:for-item="item">
+                            <swiper-item>
+                                <view class="feature-title">
+                                    <view class="title-item {{cell.active}}" wx:for="{{item}}" wx:key="*this" wx:for-index="idxCell" wx:for-item="cell" bindtap="handleFeatureTap" data-itemindex="{{idx}}" data-cellindex="{{idxCell}}">
+                                        <image class="icon" mode="aspectFit" src="{{cell.icon}}"></image>
+                                        <text>{{cell.name}}</text>
+                                    </view>
+                                </view>
+                                <view class="feature-intro">
+                                    <view class="intro-item {{cell.active}}" wx:for="{{item}}" wx:key="*this" wx:for-index="idxCell" wx:for-item="cell">
+                                        <text>{{cell.intro}}</text>
+                                    </view>
+                                </view>
+                            </swiper-item>
+                        </block>
+                    </swiper>
+                </view>
+            </view>
+        </view><!-- //项目信息 -->
+
+        <view class="section process" id="viewProcess">
+            <view class="section-title">
+                <text class="title">{{lang.BROKER}}</text>
+            </view>
+            <view class="section-body">
+                <view class="process-list">
+                    <block wx:for="{{data.process}}" wx:key="*this">
+                        <image wx:if="{{item.type == 1}}" mode="widthFix" src="{{item.file}}"></image>
+                        <video wx:if="{{item.type == 2}}" controls="true" mode="widthFix" src="{{item.file}}" poster="{{item.file}}?x-oss-process=video/snapshot,t_1000"></video>
+                    </block>
+                </view>
+                <view wx:if="{{data.broker}}">
+                    <view class="broker">
+                        <view class="broker-info">
+                            <view class="avatar" style="background-image:url({{data.broker.avatar}})"></view>
+                            <view class="info">
+                                <view class="name">{{data.broker.name}}<text wx:if="{{data.broker.age > 0}}">({{data.broker.age}}{{lang.YEARS}})</text></view>
+                                <text class="intro"></text>
+                            </view>
+                        </view>
+                        <button open-type="contact" class="btn-contact"><image src="/assets/icon_talk.png" class="icon-talk" mode="aspectFit"></image></button>
+                        
+                    </view>
+
+                    <view class="broker-item" wx:if="{{data.broker.languages}}">
+                        <text>{{lang.LANGUAGES}}</text>
+                        <text class="right">{{data.broker.languages}}</text>
+                    </view>
+                    <view class="broker-item" wx:if="{{data.broker.certificate}}">
+                        <text>{{lang.CERTIFICATE}}</text>
+                        <text class="right">{{data.broker.certificate}}</text>
+                    </view>
+                    <view class="broker-item" wx:if="{{data.broker.experience}}">
+                        <text>{{lang.INDUSTRY_EXPERIENCE}}</text>
+                        <text class="right">{{data.broker.experience}}</text>
+                    </view>
+                    <view class="broker-item" wx:if="{{data.broker.education}}">
+                        <text>{{lang.EDUCATION}}</text>
+                        <text class="right">{{data.broker.education}}</text>
+                    </view>
+                </view>
+                
+            </view>
+        </view><!-- //购房流程 -->
+    </view>
+    </scroll-view>
+    <view class="video-layer" wx:if="{{targetVideo != ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+        <video mode="widthFix" autoplay src="{{targetVideo}}" poster="{{targetVideo}}?x-oss-process=video/snapshot,t_1000"></video>
+        <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
+    </view>
+</view>
+<view class="btn-share-container">
+    <button open-type="share" class="btn-share"><image src="/assets/icon_share.png"></image></button>
+</view>
+<view class="btn-calc-container">
+    <button bindtap="handleShowCalc" class="btn-calc"><image src="/assets/icon_calc.svg"></image></button>
+</view>
+<view class="borker-fixed" wx:if="{{data.broker}}">
+    <view class="broker-info">
+        <view class="avatar" style="background-image:url({{data.broker.avatar}})"></view>
+        <view class="info">
+            <view class="name">{{data.broker.name}}<text wx:if="{{data.broker.age > 0}}">({{data.broker.age}}{{lang.YEARS}})</text></view>
+            <text class="intro"></text>
+        </view>
+    </view>
+    <button open-type="contact" class="btn-contact">{{lang.WECHAT}}</button>
+</view>
+<view class="calc-container {{calc.show ? ' show' : ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <view class="calc-inner">
+        <text class="calc-title">{{lang.LOAN_CALC}}</text>
+        <view class="calc-item">
+            <text class="left-col">{{lang.PURCHASE_PRICE}}</text>
+            <view class="right-col">
+                <input placeholder="{{lang.PLEASE_ENTER_PURCHASE_AMOUNT}}" value="{{calc.amount}}" bindinput="handleAmountInput" type="number" />
+            </view>
+            
+        </view>
+        <view class="calc-item">
+            <text class="left-col">{{lang.LOAN_TERM}}</text>
+            <view class="right-col">
+                <picker bindchange="handleYearPickerChange" value="{{yearIndex}}" range-key="name" range="{{data.loan_year}}">
+                    <view class="picker">
+                    {{data.loan_year[yearIndex].name}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="calc-item">
+            <text class="left-col">{{lang.DOWN_PAYMENT}}</text>
+            <view class="right-col">
+                <input placeholder="{{lang.PLEASE_ENTER_PAYMENT_RATIO}}" value="{{calc.paymentRatio}}" maxlength="2" bindinput="handlePaymentRatioInput" type="number" />
+                <text>%</text>
+            </view>
+        </view>
+        <view class="calc-item">
+            <text class="left-col">{{lang.INTEREST_RATE}}</text>
+           <view class="right-col">
+                <input placeholder="{{lang.PLEASE_ENTER_INTEREST_RATE}}" value="{{calc.lendingRate}}" maxlength="6" bindinput="handleLendingRateInput" type="digit" />
+                <text>%</text>
+            </view>
+        </view>
+        <view class="calc-actions">
+            <button class="btn-confirm" bindtap="handleCalcConfirm">{{lang.START_CALC}}</button>
+            <button class="btn-reset" bindtap="handleCalcReset">{{lang.RESET}}</button>
+        </view>
+        <view class="calc-result" wx-if="{{calc.hasResult}}">
+            <text class="calc-title">{{lang.result}}</text>
+            <view class="calc-item">
+                <text class="left-col">{{lang.LOAN_AMOUNT}}</text>
+                <text class="right-col">{{calc.loanAmount}}</text>
+            </view>
+            <view class="calc-item">
+                <text class="left-col">{{lang.MONTHLY_MORTGAGE_PAYMENT}}</text>
+                <text class="right-col">{{calc.monthlyPayment}}</text>
+            </view>
+            <view class="calc-item">
+                <text class="left-col">{{lang.ANNUAL_MORTGAGE_PAYMENT}}</text>
+                <text class="right-col">{{calc.yearlyPayment}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="btn-close" bindtap="handleCloseCalc">{{lang.CLOSE}}</view>
+</view>

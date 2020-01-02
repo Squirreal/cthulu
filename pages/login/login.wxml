@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <view class="container" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="logo">
+            <image src="/assets/logo.png" mode="aspectFit"></image>
+        </view>
+        <view class="intro">{{lang.PROGRAM_INTRO}}</view>
+        <button open-type="getUserInfo" class="btn-login" bindgetuserinfo="getUserInfo">
+            <image src="/assets/icon_wechat.png" mode="aspectFit"></image>
+            <text>{{lang.WELCOME_LOGIN}}</text>
+        </button>
+        <text class="txt-or">{{lang.OR}}</text>
+        <button open-type="getPhoneNumber" class="btn-login login-with-mobile" bindgetphonenumber="getPhoneNumber">
+            <text>{{lang.LOGIN_WITH_MOBILE}}</text>
+        </button>
+    </view>
+</view>

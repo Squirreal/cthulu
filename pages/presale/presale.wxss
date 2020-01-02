@@ -1,0 +1,371 @@
+/* pages/presale/presale.wxss */
+.swiper {
+    height: 424rpx;
+}
+
+.swiper .swiper-container {
+    height: 100%;
+}
+
+.swiper-item {
+    height: 100%;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: cover;
+}
+
+.swiper-item .icon-play {
+    width: 86rpx;
+    height: 86rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -43rpx;
+    margin-left: -43rpx;
+}
+
+.section {
+    border-bottom: 16rpx solid #eeeeee;
+    background:#fff;
+}
+.section .section-title {
+    height: 104rpx;
+    padding: 0rpx 28rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section .section-title .title {
+    font-size: 17px;
+    color: #353535;
+    letter-spacing: 0;
+    line-height: 18px;
+    font-weight: 700;
+}
+.section.info .section-title {
+    height: auto;
+    padding-top: 28rpx;
+}
+.section.info .section-body {
+    padding: 8rpx 28rpx 32rpx 28rpx;
+}
+.section.info .location {
+    font-size: 14px;
+    color: #888888;
+    letter-spacing: 0;
+    display:flex;
+    align-items: center;
+}
+.section.info .location image {
+    width: 20rpx;
+    height: 28rpx;
+    margin-right: 8rpx;
+}
+.section.info .meta {
+    padding: 32rpx 8rpx;
+    margin-top: 16rpx;
+    background: #F8F8F8;
+    border-radius: 16rpx;
+    display: flex;
+}
+.section.info .meta .meta-item {
+    width: 33.333%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.section.info .meta .meta-title {
+    font-size: 11px;
+    color: #B4A099;
+    letter-spacing: 0;
+}
+.section.info .meta .meta-value {
+    font-size: 22px;
+    color: #6A6362;
+    letter-spacing: 0;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-top: 18rpx;
+    text-align: center;
+}
+
+.section.project .download {
+    font-size: 14px;
+    color: #A1887F;
+    letter-spacing: 0;
+    display:flex;
+    align-items: center;
+}
+.section.project .download image {
+    width: 24rpx;
+    height: 30rpx;
+    margin-left: 8rpx;
+}
+
+.section.project .apartment-item {
+    padding: 32rpx 28rpx;
+    border-top: 1px solid #EDEDED;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+}
+.section.project .apartment-item:last-child {
+    border-bottom: 1px solid #EDEDED;
+}
+.section.project .apartment-item .right {
+    width: 60%;
+    text-align: right;
+    color: #999999;
+}
+.section.project .apartment-item .right .sp {
+    font-size: 10px;
+}
+.section.project .feature-box {
+    height: 286rpx;
+    margin: 28rpx;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.section.project .feature-box .swiper-container {
+    height: 100%;
+}
+.section.project .feature-box .feature-title {
+    height: 160rpx;
+    display: flex;
+    align-items: ceneter;
+    border-bottom: 1px solid #EEEEEE;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+}
+.section.project .feature-box .title-item {
+    width: 25%;
+    font-size: 12px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 36rpx;
+    position: relative;
+}
+.section.project .feature-box .title-item.active:after {
+    content: "";
+    position:absolute;
+    bottom: -4rpx;
+    border: 0rpx;
+    width: 64rpx;
+    height: 4rpx;
+    background: #A1887F 
+}
+.section.project .feature-box .title-item .icon {
+    width: 64rpx;
+    height: 64rpx;
+    margin-bottom: 8rpx;
+}
+.section.project .feature-box .feature-intro {
+    padding: 20rpx 40rpx;
+    
+} 
+.section.project .feature-box .feature-intro .intro-item {
+    font-size: 12px;
+    color: #333333;
+    letter-spacing: 0;
+    display: none;
+}
+.section.project .feature-box .feature-intro .intro-item.active {
+    display: block;
+}
+
+.section.process .section-body {
+    padding: 0px 28rpx 28rpx 28rpx;
+}
+.section.process .process-list image, .section.process .process-list video {
+    width: 100%;
+}
+
+.section.process .broker {
+    margin-top: 40rpx;
+    margin-bottom: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section.process .broker-info {
+    margin-right: 80rpx;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+.section.process .broker-info .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    overflow: hidden;
+    background: #D8D8D8 no-repeat center;
+    background-size: cover;
+    flex: 0 0 80rpx;
+    margin-right: 32rpx;
+}
+.section.process .broker-info .info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.section.process .broker-info .name {
+    font-size: 14px;
+    color: #2F2F2F;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+.section.process .broker-info .intro {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0;
+}
+.section.process .broker .btn-contact {
+    width: 64rpx;
+    height: 64rpx;
+    background: white;
+    flex: 0 0 64rpx;
+    margin: 0px;
+    padding: 0px;
+}
+.section.process .broker .icon-talk {
+    width: 64rpx;
+    height: 64rpx;
+    display: block;
+}
+
+.section.process .broker-item {
+    padding: 32rpx 0rpx;
+    border-top: 1px solid #EDEDED;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+}
+.section.process .broker-item:last-child {
+    border-bottom: 1px solid #EDEDED;
+}
+.section.process .broker-item .right {
+    width: 60%;
+    text-align: right;
+    color: #999999;
+}
+
+.section:last-child {
+    margin-bottom: 124rpx;
+    padding-bottom: 124rpx;
+}
+
+.section.loans .section-body, .section.assignment .section-body  {
+    padding: 28rpx;
+    padding-top: 0rpx;
+    font-size: 16px;
+    line-height: 22px;
+    color: #666666;
+    letter-spacing: 0;
+}
+
+.btn-share-container {
+    bottom: 144rpx;
+}
+.btn-calc-container {
+    bottom: 264rpx;
+}
+.borker-fixed {
+    position: fixed;
+    width: 100%;
+    height: 104rpx;
+    background: #FFFFFF;
+    bottom: 0rpx;
+    left: 0rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+}
+.borker-fixed .broker-info {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 60%;
+}
+.borker-fixed .broker-info .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    overflow: hidden;
+    background: #D8D8D8 no-repeat center;
+    background-size: cover;
+    flex: 0 0 80rpx;
+    margin-left: 28rpx;
+    margin-right: 32rpx;
+}
+.borker-fixed .broker-info .info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 60%;
+}
+.borker-fixed .broker-info .name {
+    font-size: 14px;
+    color: #2F2F2F;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+.borker-fixed .broker-info .intro {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.borker-fixed .btn-contact {
+    width: 300rpx;
+    height: 100%;
+    background: #A1887F;
+    padding: 0rpx;
+    margin: 0rpx;
+    border-radius: 0rpx;
+    line-height: 104rpx;
+    color: #FFF;
+    font-size: 16px;
+}
+.tabbar-fixed {
+    position: fixed;
+    width: 100%;
+    height: 120rpx;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+    display:flex;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-out 0s;
+}
+.tabbar-fixed.show {
+    transform: translateY(0);
+}
+.tabbar-fixed .tab-item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1rpx solid #eeeeee;
+}
+.tabbar-fixed .tab-item:last-child {
+    border: 0px;
+}

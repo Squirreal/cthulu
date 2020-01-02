@@ -1,0 +1,98 @@
+<!--pages/country/country.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScrollToLower" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="container">
+            <view class="country-info">
+                <view class="flag" style="background-image:url({{countryInfo.national_flag}})"></view>
+                <view>
+                    <view class="country-name">{{countryInfo.name}}</view>
+                    <view class="country-meta">
+                        <view>
+                            <view>{{lang.POPULATION}}：{{countryInfo.population}}</view>
+                            <view>{{lang.CURRENCY}}：{{countryInfo.currency}}</view>
+                        </view>
+                        <view style="margin-left:24rpx">
+                            <view>{{lang.AREA}}：{{countryInfo.area}}</view>
+                            <view>{{lang.EXCHANGE_RATE}}：{{countryInfo.exchange_rate}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view><!-- //国家详情 -->
+            <view class="swiper" wx:if="{{banner.length > 0}}">
+                <swiper class="swiper-container" indicator-dots="{{banner.length > 1}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}" duration="{{swiperConfig.duration}}">
+                    <block wx:for="{{banner}}" wx:key="*this">
+                        <swiper-item>
+                            <view wx:if="{{ item.type == 1 }}" class="swiper-item" style="background-image:url({{item.file}})" bindtap="handleTap" data-type="{{item.target}}" data-id="{{item.targetId}}">
+                                
+                            </view>
+                            <view wx:elif="{{ item.type == 2 }}" class="swiper-item" style="background-image:url({{item.file}}?x-oss-process=video/snapshot,t_1000)" bindtap="handlePlayVideo" data-video="{{item.file}}">
+                                <image class="icon-play" src="/assets/icon_play.png"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view><!-- //轮播 -->
+            <view class="section" wx:if="{{hotCity.length > 0}}">
+                <view class="section-title">{{lang.HOT_CITY}}</view>
+                <view class="section-body">
+                    <view class="scroll-box">
+                        <scroll-view class="hot-city" scroll-x="true">
+                            <block wx:for="{{hotCity}}" wx:key="*this">
+                                <view class="city-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-type="city" data-id="{{item.id}}">
+                                    <view class="city-name">{{item.name}}</view>
+                                </view>
+                            </block>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view><!-- //热门城市 -->
+            <view class="section feature" wx:if="{{countryInfo.feature}}">
+                <view class="section-title">{{lang.IMMIGRATION_POLICY}}</view>
+                <view class="section-body">
+                    <rich-text nodes="{{countryInfo.feature}}"></rich-text>
+                </view>
+            </view>
+            <view class="section" wx:if="{{countryInfo.name}}">
+                <view class="section-title">{{lang.ECONOMIC_PROFILE}}</view>
+                <view class="section-body">
+                    <view class="economy-item">
+                        <text>GDP</text>
+                        <text>{{countryInfo.gdp}}</text>
+                    </view>
+                    <view class="economy-item">
+                        <text>{{lang.GDP_PER_CAPITA}}</text>
+                        <text>{{countryInfo.gdp_per_capita}}</text>
+                    </view>
+                    <view class="economy-item">
+                        <text>{{lang.GDP_GROWTH}}</text>
+                        <text>{{countryInfo.gdp_growth}}</text>
+                    </view>
+                </view>
+            </view><!-- //经济概况 -->
+            <view class="section buildings" wx:if="{{buildings.length > 0}}">
+                <view class="section-title">{{lang.RELATED_BUILDINGS}}</view>
+                <view class="section-body">
+                    <block wx:for="{{buildings}}" wx:key="*this">
+                        <view class="building-item" bindtap="handleTap" data-type="building" data-id="{{item.id}}">
+                            <view class="building-cover" style="background-image:url({{item.cover}})">
+                                <text class="building-tag" wx-if="{{item.tag}}">{{item.tag}}</text>
+                            </view>
+                            <view class="building-info">
+                                <view class="building-name"><text>{{item.name}}</text></view>
+                                <view class="building-location"><text>{{item.location}}</text></view>
+                                <view class="building-price"><text>{{item.price}}</text><text class="sp">{{lang.SP}}</text></view>
+                                <button class="btn">{{lang.VIEW_MORE}}</button>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //合作楼盘 -->
+            <view class="loading-container" wx:if="{{showLoadMore == true}}"><view class="loading"></view><text>{{lang.LOADING}}...</text></view>
+        </view>
+    </scroll-view>
+    <view class="video-layer" wx:if="{{targetVideo != ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">
+        <video mode="widthFix" autoplay src="{{targetVideo}}" poster="{{targetVideo}}?x-oss-process=video/snapshot,t_1000"></video>
+        <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
+    </view>
+</view>

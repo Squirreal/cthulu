@@ -1,0 +1,28 @@
+<!--pages/city/buildings.wxml-->
+<!--pages/city/city.wxml-->
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+<view class="main" style="{{'top:' + navigationBarHeight + 'px'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScrollToLower" style="height:{{windowHeight-navigationBarHeight}}px">
+        <view class="container">
+            <view class="section buildings" wx:if="{{buildings.length > 0}}">
+                <view class="section-body">
+                    <block wx:for="{{buildings}}" wx:key="*this">
+                        <view class="building-item" bindtap="handleTap" data-type="building" data-id="{{item.id}}">
+                            <view class="building-cover" style="background-image:url({{item.cover}})">
+                                <text class="building-tag" wx-if="{{item.tag}}">{{item.tag}}</text>
+                            </view>
+                            <view class="building-info">
+                                <view class="building-name"><text>{{item.name}}</text></view>
+                                <view class="building-location"><text>{{item.location}}</text></view>
+                                <view class="building-price"><text>{{item.price}}</text></view>
+                                <button class="btn">{{lang.VIEW_MORE}}</button>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view><!-- //合作楼盘 -->
+            
+            <view class="loading-container" wx:if="{{showLoadMore == true}}"><view class="loading"></view><text>{{lang.LOADING}}...</text></view>
+        </view>
+    </scroll-view>
+</view>

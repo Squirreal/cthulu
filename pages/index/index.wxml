@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<navbar text="{{navigationBarTitle}}"></navbar>
+<view class="loading"></view>
+<view class="copyright">©2019 {{navigationBarTitle}}</view>

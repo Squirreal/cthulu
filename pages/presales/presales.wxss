@@ -1,0 +1,56 @@
+/* pages/presales/presales.wxss */
+.section.presales .section-body {
+    padding-left: 28rpx;
+    padding-right:28rpx;
+}
+.section.presales .presale-item {
+    display: flex;
+    padding: 24rpx 0rpx;
+    border-bottom: 1px solid #EDEDED;
+    justify-content: space-between;
+}
+.section.presales .presale-item:active {
+    opacity: 0.7;
+}
+.section.presales .presale-item:last-child {
+    border: 0px;
+}
+.section.presales .presale-meta {
+    display: flex;
+}
+.section.presales .presale-cover {
+    width: 160rpx;
+    height: 120rpx;
+    flex: 0 0 160rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-size: cover;
+}
+.section.presales .presale-info {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 0rpx 16rpx;
+    height: 120rpx;
+    justify-content: space-between;
+}
+.section.presales .presale-info text:last-child {
+    font-size: 12px;
+    color: #999999;
+}
+.section.presales .presale-info .item-left {
+    width: 180rpx;
+}
+.section.presales .presale-price {
+    color: #6A6362
+}
+.section.presales .btn-more {
+    font-size: 14px;
+    background: transparent;
+    color: #A1887F;
+    margin-top: 12rpx;
+}
+.section.presales .btn-more:active {
+    opacity: 0.7;
+}
