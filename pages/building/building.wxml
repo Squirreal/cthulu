@@ -144,9 +144,9 @@
     <view class="tab-item {{currentTab == 'viewProcess' ? ' active' : ''}}" bindtap="scrollToView" data-id="viewProcess">{{lang.PURCHASE_PROCESS}}</view>
     <view class="tab-item {{currentTab == 'viewLoans' ? ' active' : ''}}" bindtap="scrollToView" data-id="viewLoans">{{lang.LOANS}}</view>
 </view>
-<view class="btn-share-container">
+<!-- <view class="btn-share-container">
     <button open-type="share" class="btn-share"><image src="/assets/icon_share.png"></image></button>
-</view>
+</view> -->
 <view class="btn-calc-container">
     <button bindtap="handleShowCalc" class="btn-calc"><image src="/assets/icon_calc.svg"></image></button>
 </view>

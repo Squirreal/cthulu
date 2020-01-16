@@ -53,7 +53,7 @@
                     <rich-text nodes="{{countryInfo.feature}}"></rich-text>
                 </view>
             </view>
-            <view class="section" wx:if="{{countryInfo.name}}">
+            <!--<view class="section" wx:if="{{countryInfo.name}}">
                 <view class="section-title">{{lang.ECONOMIC_PROFILE}}</view>
                 <view class="section-body">
                     <view class="economy-item">
@@ -69,7 +69,7 @@
                         <text>{{countryInfo.gdp_growth}}</text>
                     </view>
                 </view>
-            </view><!-- //经济概况 -->
+            </view>--><!-- //经济概况 -->
             <view class="section buildings" wx:if="{{buildings.length > 0}}">
                 <view class="section-title">{{lang.RELATED_BUILDINGS}}</view>
                 <view class="section-body">

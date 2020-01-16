@@ -281,7 +281,7 @@
     bottom: 144rpx;
 }
 .btn-calc-container {
-    bottom: 264rpx;
+    bottom: 144rpx;
 }
 .borker-fixed {
     position: fixed;

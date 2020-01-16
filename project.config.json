@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.9.3",
 	"appid": "wx810bc000241ac316",
-	"projectname": "Squirreal",
+	"projectname": "squirreal",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

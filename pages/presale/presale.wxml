@@ -114,6 +114,7 @@
                         <video wx:if="{{item.type == 2}}" controls="true" mode="widthFix" src="{{item.file}}" poster="{{item.file}}?x-oss-process=video/snapshot,t_1000"></video>
                     </block>
                 </view>
+
                 <view wx:if="{{data.broker}}">
                     <view class="broker">
                         <view class="broker-info">
@@ -154,9 +155,9 @@
         <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
     </view>
 </view>
-<view class="btn-share-container">
+<!-- <view class="btn-share-container">
     <button open-type="share" class="btn-share"><image src="/assets/icon_share.png"></image></button>
-</view>
+</view> -->
 <view class="btn-calc-container">
     <button bindtap="handleShowCalc" class="btn-calc"><image src="/assets/icon_calc.svg"></image></button>
 </view>

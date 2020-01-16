@@ -70,6 +70,6 @@
         <view class="btn-close" bindtap="handleCloseVideo">{{lang.CLOSE}}</view>
     </view>
 </view>
-<view class="btn-share-container">
+<!-- <view class="btn-share-container">
     <button open-type="share" class="btn-share"><image src="/assets/icon_share.png"></image></button>
-</view>
+</view> -->

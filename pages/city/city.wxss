@@ -188,14 +188,16 @@
     height: 120rpx;
     justify-content: space-between;
 }
-.section.presales .presale-info text:last-child {
-    font-size: 12px;
-    color: #999999;
-}
+
 .section.presales .presale-info .item-left {
     width: 180rpx;
 }
+.section.presales .presale-info .item-info {
+    font-size: 12px;
+    color: #999999;
+}
 .section.presales .presale-price {
+    font-size: 14px;
     color: #6A6362
 }
 .section  .btn-more {

@@ -60,6 +60,7 @@ Page({
     },
     handleDownload: function(event) {
         let file = event.currentTarget.dataset.file;
+        console.log(file);
         wx.showLoading();
         wx.downloadFile({
             url: file,
