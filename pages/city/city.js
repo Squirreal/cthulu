@@ -151,6 +151,7 @@ Page({
             dataType: app.apiConfig.dataType,
             success: (res => {
                 const data = res.data;
+                console.log(data);
                 if (data.status == 'y') {
                     that.data.presales = data.data;
                     that.setData(that.data);

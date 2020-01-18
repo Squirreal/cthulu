@@ -170,6 +170,7 @@
 }
 .section.presales .presale-meta {
     display: flex;
+    width: 700rpx;
 }
 .section.presales .presale-cover {
     width: 160rpx;
@@ -193,12 +194,13 @@
     width: 180rpx;
 }
 .section.presales .presale-info .item-info {
-    font-size: 12px;
+    font-size: 11px;
     color: #999999;
 }
 .section.presales .presale-price {
-    font-size: 14px;
-    color: #6A6362
+    font-size: 11px;
+    color: #6A6362;
+    width: 200rpx;
 }
 .section  .btn-more {
     width: 100%;
