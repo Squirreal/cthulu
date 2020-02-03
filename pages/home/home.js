@@ -64,6 +64,7 @@ Page({
                     that.data.banner = data.data.banner;
                     that.data.hotCountry = data.data.hot_country;
                     that.data.hotCity = data.data.hot_city;
+                    console.log(this.data);
                     that.setData(that.data);
                 } else {
                     wx.showToast({

@@ -30,7 +30,7 @@
 .country-meta {
     display: flex;
     margin-top: 12rpx;
-    font-size: 10px;
+    font-size: 20rpx;
     color: #666;
     letter-spacing: 0;
 }

@@ -38,7 +38,7 @@
 }
 .section .building-item .building-name {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 24rpx;
     color: #353535;
     letter-spacing: 0;
     line-height: 16px;
@@ -60,7 +60,7 @@
 }
 .section .building-item .btn {
     width: 100%;
-    font-size: 14px;
+    font-size: 24rpx;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: center;

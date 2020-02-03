@@ -12,9 +12,7 @@
 .section.presales .presale-item:active {
     opacity: 0.7;
 }
-.section.presales .presale-item:last-child {
-    border: 0px;
-}
+
 .section.presales .presale-meta {
     display: flex;
 }
@@ -35,16 +33,20 @@
     height: 120rpx;
     justify-content: space-between;
 }
-.section.presales .presale-info text:last-child {
-    font-size: 12px;
-    color: #999999;
-}
+
 .section.presales .presale-info .item-left {
     width: 180rpx;
 }
 .section.presales .presale-price {
-    color: #6A6362
+    font-size: 11px;
+    color: #6A6362;
+    width: 200rpx;
 }
+.section.presales .presale-info .item-info {
+    font-size: 11px;
+    color: #999999;
+}
+
 .section.presales .btn-more {
     font-size: 14px;
     background: transparent;

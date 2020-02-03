@@ -52,7 +52,7 @@
     padding: 8rpx 28rpx 32rpx 28rpx;
 }
 .section.info .location {
-    font-size: 14px;
+    font-size: 24rpx;
     color: #888888;
     letter-spacing: 0;
     display:flex;
@@ -82,7 +82,7 @@
     letter-spacing: 0;
 }
 .section.info .meta .meta-value {
-    font-size: 22px;
+    font-size: 38rpx;
     color: #6A6362;
     letter-spacing: 0;
     white-space: normal;
@@ -92,7 +92,7 @@
 }
 
 .section.project .download {
-    font-size: 14px;
+    font-size: 24rpx;
     color: #A1887F;
     letter-spacing: 0;
     display:flex;
@@ -110,7 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 24rpx;
     color: #333333;
     letter-spacing: 0;
 }
@@ -220,13 +220,13 @@
     flex-direction: column;
 }
 .section.process .broker-info .name {
-    font-size: 14px;
+    font-size: 24rpx;
     color: #2F2F2F;
     letter-spacing: 0;
     font-weight: 700;
 }
 .section.process .broker-info .intro {
-    font-size: 12px;
+    font-size: 24rpx;
     color: #999999;
     letter-spacing: 0;
 }
@@ -250,7 +250,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 24rpx;
     color: #333333;
     letter-spacing: 0;
 }
@@ -334,7 +334,7 @@
     width: 100%;
 }
 .borker-fixed .btn-contact {
-    width: 300rpx;
+    width: 100%;
     height: 100%;
     background: #A1887F;
     padding: 0rpx;

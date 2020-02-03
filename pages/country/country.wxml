@@ -40,7 +40,7 @@
                         <scroll-view class="hot-city" scroll-x="true">
                             <block wx:for="{{hotCity}}" wx:key="*this">
                                 <view class="city-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-type="city" data-id="{{item.id}}">
-                                    <view class="city-name">{{item.name}}</view>
+                                    <view class="city-name">{{item.full_name}}</view>
                                 </view>
                             </block>
                         </scroll-view>

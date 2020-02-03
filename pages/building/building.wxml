@@ -99,8 +99,6 @@
                                 <text class="intro"></text>
                             </view>
                         </view>
-                        <button open-type="contact" class="btn-contact"><image src="/assets/icon_talk.png" class="icon-talk" mode="aspectFit"></image></button>
-                        
                     </view>
 
                     <view class="broker-item" wx:if="{{data.broker.languages}}">
@@ -151,13 +149,6 @@
     <button bindtap="handleShowCalc" class="btn-calc"><image src="/assets/icon_calc.svg"></image></button>
 </view>
 <view class="borker-fixed" wx:if="{{data.broker}}">
-    <view class="broker-info">
-        <view class="avatar" style="background-image:url({{data.broker.avatar}})"></view>
-        <view class="info">
-            <view class="name">{{data.broker.name}}<text wx:if="{{data.broker.age > 0}}">({{data.broker.age}}{{lang.YEARS}})</text></view>
-            <text class="intro"></text>
-        </view>
-    </view>
     <button open-type="contact" class="btn-contact">{{lang.WECHAT}}</button>
 </view>
 <view class="calc-container {{calc.show ? ' show' : ''}}" style="{{'top:' + navigationBarHeight + 'px'}}">

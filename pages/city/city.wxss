@@ -68,7 +68,7 @@
 
 .section.buildings .section-body {
     padding-left: 28rpx;
-    padding-right:28rpx;
+    padding-right: 28rpx;
     padding-bottom: 28rpx;
     justify-content: space-between;
     display: flex;

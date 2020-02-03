@@ -25,7 +25,7 @@
                             <view class="circle-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-id="{{item.id}}" data-type="country">
                                 <text class="txt-name"></text>
                             </view>
-                            <text class="item-name">{{item.name}}</text>
+                            <text class="item-name">{{item.full_name}}</text>
                             <text class="item-flag" wx:if="{{item.intro}}">{{item.intro}}</text>
                         </view>
                     </block>
@@ -39,7 +39,7 @@
                             <view class="circle-item" style="background-image:url({{item.cover}})" bindtap="handleTap" data-id="{{item.id}}" data-type="city">
                                 <text class="txt-name"></text>
                             </view>
-                            <text class="item-name">{{item.name}}</text>
+                            <text class="item-name">{{item.full_name}}</text>
                         </view>
                     </block>
                 </view>
