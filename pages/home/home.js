@@ -154,12 +154,24 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.data.lang = app.globalData.lang;
-        this.data.navigationBarTitle = this.data.lang.SQUIRREAL;
-        this.setData(this.data);
 
-        this.loadHomeData();
-        this.loadHotBuildings();
+        if (app.langReady) {
+            this.data.lang = app.globalData.lang;
+            this.data.navigationBarTitle = this.data.lang.SQUIRREAL;
+            this.setData(this.data);
+
+            this.loadHomeData();
+            this.loadHotBuildings();
+        } else {
+            app.checkLangReadyCallback = res => {
+                this.data.lang = app.globalData.lang;
+                this.data.navigationBarTitle = this.data.lang.SQUIRREAL;
+                this.setData(this.data);
+    
+                this.loadHomeData();
+                this.loadHotBuildings();
+            }
+        }
     },
 
     /**

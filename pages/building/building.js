@@ -309,11 +309,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.data.lang = app.globalData.lang;
-        this.setData(this.data);
-
-        this.data.buildingId = options.id;
-        this.loadBuilding();
+        if (app.langReady) {
+            this.data.lang = app.globalData.lang;
+            this.setData(this.data);
+    
+            this.data.buildingId = options.id;
+            this.loadBuilding();
+        } else {
+            app.checkLangReadyCallback = res => {
+                this.data.lang = app.globalData.lang;
+                this.setData(this.data);
+    
+                this.data.buildingId = options.id;
+                this.loadBuilding();
+            }
+        }
     },
 
     /**

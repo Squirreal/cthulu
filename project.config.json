@@ -39,13 +39,43 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/city/city",
+					"pathName": "pages/city/city",
+					"query": "id=Dc2WDcGco_",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/building/building",
+					"pathName": "pages/building/building",
+					"query": "id=mmm6zsRRQB",
+					"scene": null
+				}
+			]
 		}
 	}
 }

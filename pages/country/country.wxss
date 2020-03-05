@@ -138,7 +138,7 @@
     text-align: right;
 }
 
-.section.feature .section-body {
+.section .section-body {
     padding-left: 28rpx;
     padding-right: 28rpx;
     font-size: 12px;

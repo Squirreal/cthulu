@@ -48,9 +48,15 @@
                 </view>
             </view><!-- //热门城市 -->
             <view class="section feature" wx:if="{{countryInfo.feature}}">
-                <view class="section-title">{{lang.IMMIGRATION_POLICY}}</view>
+                <view class="section-title">{{lang.COUNTRY_FEATURE}}</view>
                 <view class="section-body">
                     <rich-text nodes="{{countryInfo.feature}}"></rich-text>
+                </view>
+            </view>
+            <view class="section immigration" wx:if="{{countryInfo.immigration}}">
+                <view class="section-title">{{lang.IMMIGRATION_POLICY}}</view>
+                <view class="section-body">
+                    <rich-text nodes="{{countryInfo.immigration}}"></rich-text>
                 </view>
             </view>
             <!--<view class="section" wx:if="{{countryInfo.name}}">

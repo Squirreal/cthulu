@@ -151,7 +151,6 @@ Page({
             dataType: app.apiConfig.dataType,
             success: (res => {
                 const data = res.data;
-                console.log(data);
                 if (data.status == 'y') {
                     that.data.presales = data.data;
                     that.setData(that.data);
@@ -179,13 +178,25 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.data.lang = app.globalData.lang;
-        this.setData(this.data);
+        if (app.langReady) {
+            this.data.lang = app.globalData.lang;
+            this.setData(this.data);
 
-        this.data.cityId = options.id;
-        this.loadCity();
-        this.loadBuildings();
-        this.loadPresales();
+            this.data.cityId = options.id;
+            this.loadCity();
+            this.loadBuildings();
+            this.loadPresales();
+        } else {
+            app.checkLangReadyCallback = res => {
+                this.data.lang = app.globalData.lang;
+                this.setData(this.data);
+    
+                this.data.cityId = options.id;
+                this.loadCity();
+                this.loadBuildings();
+                this.loadPresales();
+            };
+        }
     },
 
     /**
